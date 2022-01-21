@@ -33,7 +33,7 @@ export const Registeration = () => {
     }
     return (
         <>
-            <a className='btn btn-outline-dark btn-sm' id='openregister' data-bs-toggle="modal" data-bs-target="#register">Register</a>
+            <button className='btn btn-outline-dark btn-sm' id='openregister' data-bs-toggle="modal" data-bs-target="#register">Register</button>
             <div className="modal fade" id="register" data-bs-backdrop="register" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="register" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div className="modal-content">
@@ -60,7 +60,7 @@ export const Registeration = () => {
                             </div>
                             <button type="submit" className="form-control btn btn-primary">Register as Candidate</button>
                         </form>
-                        <h6 className='mt-4 text-center'>Already have an account ? <a className="" data-bs-target="#login" data-bs-toggle="modal" data-bs-dismiss="modal">Login</a></h6>
+                        <h6 className='mt-4 text-center'>Already have an account ? <button className="btn" data-bs-target="#login" data-bs-toggle="modal" data-bs-dismiss="modal">Login</button></h6>
                         </div>
                     </div>
                 </div>

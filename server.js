@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT;
 const mongo = require('mongoose');
 const UserModel = require('./Models/User');
+const BlogModel = require('./Models/Blog');
 app.use(express.json());
 
 mongo.connect('mongodb://127.0.0.1:27017/MyWaysBlogs').then(console.log("DB Connected !"));
@@ -39,13 +40,22 @@ app.post('/login', async (req,res) => {
     const verify = await UserModel.findOne({email : req.body.email,password: req.body.password});
     if (verify != null && verify.length !== 0) {
         return res.json({data:"Login Successfully !",session:{fullname:verify.fullname,email:verify.email}});
-    }else {
-        return res.json({data:"User not found !"});
     }
+    return res.json({data:"User not found !"});
 });
 
-app.get('/', (req, res) => {
-    res.append("ha bhai");
+app.get('/blogs', async (req, res) => {
+    const fetch = await BlogModel.find();
+    if (fetch != null && fetch.length !== 0) {
+        return res.json({data:"blogs",datas:fetch.reverse()});
+    }
+    return res.json({data:"No blogs yet !"});
+});
+
+app.post('/addBlog', async (req,res) => {
+    if (req.body.title === "" || req.body.image === "" || req.body.desc === "") {
+        
+    }
 });
 
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));

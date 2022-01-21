@@ -22,8 +22,8 @@ export const Login = () => {
     }
     return (
         <>
-            <a className='btn btn-outline-dark btn-sm' id="openlogin" data-bs-toggle="modal" data-bs-target="#login">Login</a>
-            <div className="modal fade" id="login" data-bs-backdrop="login" data-bs-keyboard="false" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+            <button className='btn btn-outline-dark btn-sm' id="openlogin" data-bs-toggle="modal" data-bs-target="#login">Login</button>
+            <div className="modal fade" id="login" data-bs-backdrop="login" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="login" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -40,7 +40,7 @@ export const Login = () => {
                             </div>
                             <button type="submit" className="form-control btn btn-primary">Login</button>
                         </form>
-                        <h6 className='mt-4 text-center'>Don't have an account yet ? <a class="" data-bs-target="#register" data-bs-toggle="modal" data-bs-dismiss="modal">Register</a></h6>
+                        <h6 className='mt-4 text-center'>Don't have an account yet ? <button className="btn" data-bs-target="#register" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button></h6>
                         </div>
                     </div>
                 </div>

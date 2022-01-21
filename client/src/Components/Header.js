@@ -19,6 +19,11 @@ export const Header = () => {
                     </div>
                     <div className="col-md-9">
                         <ul className="nav justify-content-end">
+                            {localStorage.getItem("loggedin") !== null?
+                            <li className="nav-item">
+                                <Link className="btn btn-sm" to="/Editor">New Blog</Link>
+                            </li>:""
+                            }
                             <li className="nav-item">
                                 <Link className="btn btn-sm" to="/">Blogs</Link>
                             </li>
@@ -26,17 +31,18 @@ export const Header = () => {
                                 <Link className="btn btn-sm" to="/About">About</Link>
                             </li>
                             {localStorage.getItem("loggedin") === null?
-                            <li className="nav-item">
-                                <Login />
-                            </li>:
+                            <>
+                                <li className="nav-item">
+                                    <Login />
+                                </li>
+                                &nbsp;
+                                <li className="nav-item">
+                                    <Registeration />
+                                </li>
+                            </>:
                             <li className="nav-item">
                                 <button className="btn btn-outline-dark btn-sm" type="button" onClick={logout}>Logout</button>
                             </li>
-                            }&nbsp;
-                            {localStorage.getItem("loggedin") === null?
-                            <li className="nav-item">
-                                <Registeration />
-                            </li>:""
                             }
                         </ul>
                     </div>
