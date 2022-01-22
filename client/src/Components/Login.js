@@ -15,7 +15,8 @@ export const Login = () => {
         let x = await axios.post('/login',User);
         if (x.data.data === "Login Successfully !") {
             document.querySelector('#closelogin').click();
-            localStorage.setItem("loggedin",x.data.session);
+            localStorage.setItem("loggedin",x.data.session.email);
+            localStorage.setItem("adminname",x.data.session.fullname);
         }
         alert(x.data.data);
         navigate("/");

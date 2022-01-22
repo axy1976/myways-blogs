@@ -8,13 +8,16 @@ export const Editor = () => {
   const [title, settitle] = useState("");
   const [image, setimage] = useState("");
   const [desc, setdesc] = useState("");
+  const dt = (new Date()).getFullYear()+'/'+(parseInt((new Date()).getMonth())+1)+'/'+(new Date()).getDate();
 
   const Blog = {
     title:"",
     image:"",
-    desc:""
+    desc:"",
+    date: dt,
+    owner: localStorage.getItem("loggedin")
   }
-
+  
   const addBlog = async (e) => {
     let x = await axios.post('/addBlog',Blog);
     console.log(x);
@@ -35,7 +38,7 @@ export const Editor = () => {
             <img src={image} alt={image} srcSet={image} />:""
             }
             <div className="mb-3">
-              <CKEditor editor={ClassicEditor} onChange={ ( event, editor ) => {setdesc(editor.getData()) } } data={desc} />
+              <CKEditor editor={ClassicEditor} onChange={ ( event, editor ) => {setdesc(editor.getData()) } } data={desc} config />
             </div>
             <button type="submit" className="form-control btn btn-primary">Login</button>
           </form>

@@ -7,6 +7,7 @@ export const Header = () => {
     let navigate = useNavigate();
     const logout = () => {
         localStorage.removeItem("loggedin");
+        localStorage.removeItem("adminname");
         navigate('/');
     }
     return (
